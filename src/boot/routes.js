@@ -20,6 +20,7 @@ import ChatPanel from 'components/chat_panel/chat_panel.vue'
 import WhoToFollow from 'components/who_to_follow/who_to_follow.vue'
 import About from 'components/about/about.vue'
 import RemoteUserResolver from 'components/remote_user_resolver/remote_user_resolver.vue'
+import Predpriyatiya from 'components/predpriyatiya/predpriyatiya.vue'
 
 export default (store) => {
   const validateAuthenticatedRoute = (to, from, next) => {
@@ -39,6 +40,7 @@ export default (store) => {
           : store.state.instance.redirectRootNoLogin) || '/main/all'
       }
     },
+    { name: 'predpriyatiya', path: '/predpriyatiya', component: Predpriyatiya },
     { name: 'public-external-timeline', path: '/main/all', component: PublicAndExternalTimeline },
     { name: 'public-timeline', path: '/main/public', component: PublicTimeline },
     { name: 'friends', path: '/main/friends', component: FriendsTimeline, beforeEnter: validateAuthenticatedRoute },

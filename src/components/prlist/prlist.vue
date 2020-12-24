@@ -1,22 +1,5 @@
 <template>
   <div :class="[classes.root, 'Timeline']">
-    <v-toolbar>
-      <TimelineMenu v-if="!embedded" />
-      <button
-        v-if="showLoadButton"
-        class="button-default loadmore-button"
-        @click.prevent="showNewStatuses"
-      >
-        {{ loadButtonString }}
-      </button>
-      <div
-        v-else
-        class="loadmore-text faint"
-        @click.prevent
-      >
-        {{ $t('timeline.up_to_date') }}
-      </div>
-    </v-toolbar>
     <div :class="classes.body">
       <div
         ref="timeline"
@@ -84,7 +67,7 @@
   </div>
 </template>
 
-<script src="./timeline.js"></script>
+<script src="./prlist.js"></script>
 
 <style lang="scss">
 @import '../../_variables.scss';

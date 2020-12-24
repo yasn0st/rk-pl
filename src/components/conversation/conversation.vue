@@ -1,46 +1,48 @@
 <template>
-  <div
-    v-if="!hideStatus"
-    :style="hiddenStyle"
-    class="Conversation"
-    :class="{ '-expanded' : isExpanded, 'panel' : isExpanded }"
-  >
+  <v-card class="mt-3">
     <div
-      v-if="isExpanded"
-      class="panel-heading conversation-heading"
+      v-if="!hideStatus"
+      :style="hiddenStyle"
+      class="Conversation"
+      :class="{ '-expanded' : isExpanded, 'panel' : isExpanded }"
     >
-      <span class="title"> {{ $t('timeline.conversation') }} </span>
-      <button
-        v-if="collapsable"
-        class="button-unstyled -link"
-        @click.prevent="toggleExpanded"
+      <div
+        v-if="isExpanded"
+        class="panel-heading conversation-heading"
       >
-        {{ $t('timeline.collapse') }}
-      </button>
+        <span class="title"> {{ $t('timeline.conversation') }} </span>
+        <button
+          v-if="collapsable"
+          class="button-unstyled -link"
+          @click.prevent="toggleExpanded"
+        >
+          {{ $t('timeline.collapse') }}
+        </button>
+      </div>
+      <status
+        v-for="status in conversation"
+        :key="status.id"
+        ref="statusComponent"
+        :inline-expanded="collapsable && isExpanded"
+        :statusoid="status"
+        :expandable="!isExpanded"
+        :show-pinned="pinnedStatusIdsObject && pinnedStatusIdsObject[status.id]"
+        :focused="focused(status.id)"
+        :in-conversation="isExpanded"
+        :highlight="getHighlight()"
+        :replies="getReplies(status.id)"
+        :in-profile="inProfile"
+        :profile-user-id="profileUserId"
+        class="conversation-status status-fadein panel-body"
+        @goto="setHighlight"
+        @toggleExpanded="toggleExpanded"
+      />
     </div>
-    <status
-      v-for="status in conversation"
-      :key="status.id"
-      ref="statusComponent"
-      :inline-expanded="collapsable && isExpanded"
-      :statusoid="status"
-      :expandable="!isExpanded"
-      :show-pinned="pinnedStatusIdsObject && pinnedStatusIdsObject[status.id]"
-      :focused="focused(status.id)"
-      :in-conversation="isExpanded"
-      :highlight="getHighlight()"
-      :replies="getReplies(status.id)"
-      :in-profile="inProfile"
-      :profile-user-id="profileUserId"
-      class="conversation-status status-fadein panel-body"
-      @goto="setHighlight"
-      @toggleExpanded="toggleExpanded"
+    <div
+      v-else
+      :style="hiddenStyle"
     />
-  </div>
-  <div
-    v-else
-    :style="hiddenStyle"
-  />
+  </v-card>
 </template>
 
 <script src="./conversation.js"></script>

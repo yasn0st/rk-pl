@@ -1,7 +1,7 @@
 import get from 'lodash/get'
 import UserCard from '../user_card/user_card.vue'
 import FollowCard from '../follow_card/follow_card.vue'
-import Timeline from '../timeline/timeline.vue'
+import Prlist from '../prlist/prlist.vue'
 import Conversation from '../conversation/conversation.vue'
 import TabSwitcher from 'src/components/tab_switcher/tab_switcher.js'
 import List from '../list/list.vue'
@@ -37,13 +37,12 @@ const UserProfile = {
   data () {
     return {
       error: false,
-      userId: 'testbaseacc',
+      userId: null,
       tab: defaultTabKey
     }
   },
   created () {
-    const routeParams = this.$route.params
-    this.load('routeParams.name || routeParams.id')
+    this.load('testbaseacc')
     this.tab = get(this.$route, 'query.tab', defaultTabKey)
   },
   destroyed () {
@@ -98,7 +97,7 @@ const UserProfile = {
       }
 
       // Reset view
-      this.userId = 'testbaseacc'
+      this.userId = null
       this.error = false
 
       // Check if user data is already loaded in store
@@ -149,7 +148,7 @@ const UserProfile = {
   },
   components: {
     UserCard,
-    Timeline,
+    Prlist,
     FollowerList,
     FriendList,
     FollowCard,

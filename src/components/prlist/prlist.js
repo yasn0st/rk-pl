@@ -23,7 +23,7 @@ export const getExcludedStatusIdsByPinning = (statuses, pinnedStatusIds) => {
   return ids
 }
 
-const Timeline = {
+const Prlist = {
   props: [
     'timeline',
     'timelineName',
@@ -253,4 +253,4 @@ const Timeline = {
   }
 }
 
-export default Timeline
+export default Prlist
