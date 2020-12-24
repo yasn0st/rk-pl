@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import vuetify from '../plugins/vuetify'
 import routes from './routes'
 import App from '../App.vue'
 import { windowWidth } from '../services/window_utils/window_utils'
@@ -381,6 +382,7 @@ const afterStoreSetup = async ({ store, i18n }) => {
     router,
     store,
     i18n,
+    vuetify,
     el: '#app',
     render: h => h(App)
   })
