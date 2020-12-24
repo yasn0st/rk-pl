@@ -9110,6 +9110,11 @@ vuelidate@^0.7.4:
   version "0.7.4"
   resolved "https://registry.yarnpkg.com/vuelidate/-/vuelidate-0.7.4.tgz#5a0e54be09ac0192f1aa3387d74b92e0945bf8aa"
 
+vuetify@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-2.4.0.tgz#6aa2616b0fecb0614cf85052b0ffbb5cad80bf92"
+  integrity sha512-FBFAtg1ZnNwDBhMzENCzgh0hBV+HMjXejrxeRQqTfKPojKQSQFswtdHatUPmlkArDulZC73GRs2F/IwdF48o5g==
+
 vuex@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/vuex/-/vuex-3.0.1.tgz#e761352ebe0af537d4bb755a9b9dc4be3df7efd2"
