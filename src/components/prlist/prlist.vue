@@ -5,30 +5,27 @@
         ref="timeline"
         class="timeline"
       >
-        <template v-for="statusId in pinnedStatusIds">
-          <conversation
-            v-if="timeline.statusesObject[statusId]"
-            :key="statusId + '-pinned'"
-            class="status-fadein"
-            :status-id="statusId"
-            :collapsable="true"
-            :pinned-status-ids-object="pinnedStatusIdsObject"
-            :in-profile="inProfile"
-            :profile-user-id="userId"
-          />
-        </template>
-        <template v-for="status in timeline.visibleStatuses">
-          <conversation
-            v-if="!excludedStatusIdsObject[status.id]"
+        <v-row class="ml-0">
+          <v-col
+            v-for="status in timeline.visibleStatuses"
             :key="status.id"
-            class="status-fadein"
-            :status-id="status.id"
-            :collapsable="true"
-            :in-profile="inProfile"
-            :profile-user-id="userId"
-            :virtual-hidden="virtualScrollingEnabled && !statusesToDisplay.includes(status.id)"
-          />
-        </template>
+            lg="3"
+            md="4"
+            sm="6"
+            cols="12"
+          >
+            <prcard
+              v-if="!excludedStatusIdsObject[status.id]"
+
+              class="status-fadein"
+              :status-id="status.id"
+              :collapsable="true"
+              :in-profile="inProfile"
+              :profile-user-id="userId"
+              :virtual-hidden="virtualScrollingEnabled && !statusesToDisplay.includes(status.id)"
+            />
+          </v-col>
+        </v-row>
       </div>
     </div>
     <div :class="classes.footer">

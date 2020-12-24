@@ -1,6 +1,5 @@
-import Status from '../status/status.vue'
 import timelineFetcher from '../../services/timeline_fetcher/timeline_fetcher.service.js'
-import Conversation from '../conversation/conversation.vue'
+import Prcard from '../prcard/prcard.vue'
 import TimelineMenu from '../timeline_menu/timeline_menu.vue'
 import { debounce, throttle, keyBy } from 'lodash'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -46,8 +45,7 @@ const Prlist = {
     }
   },
   components: {
-    Status,
-    Conversation,
+    Prcard,
     TimelineMenu
   },
   computed: {
