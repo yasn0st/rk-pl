@@ -21,6 +21,7 @@ import WhoToFollow from 'components/who_to_follow/who_to_follow.vue'
 import About from 'components/about/about.vue'
 import RemoteUserResolver from 'components/remote_user_resolver/remote_user_resolver.vue'
 import Predpriyatiya from 'components/predpriyatiya/predpriyatiya.vue'
+import Predpriyatie from 'components/predpriyatie/predpriyatie.vue'
 
 export default (store) => {
   const validateAuthenticatedRoute = (to, from, next) => {
@@ -40,6 +41,7 @@ export default (store) => {
           : store.state.instance.redirectRootNoLogin) || '/main/all'
       }
     },
+    { name: 'predpriyatie', path: '/predpriyatie/:name', component: Predpriyatie },
     { name: 'predpriyatiya', path: '/predpriyatiya', component: Predpriyatiya },
     { name: 'public-external-timeline', path: '/main/all', component: PublicAndExternalTimeline },
     { name: 'public-timeline', path: '/main/public', component: PublicTimeline },

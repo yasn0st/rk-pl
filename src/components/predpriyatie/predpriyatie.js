@@ -33,7 +33,7 @@ const FriendList = withLoadMore({
 
 const defaultTabKey = 'statuses'
 
-const UserProfile = {
+const Predpriyatie = {
   data () {
     return {
       error: false,
@@ -168,4 +168,4 @@ const UserProfile = {
   }
 }
 
-export default UserProfile
+export default Predpriyatie
